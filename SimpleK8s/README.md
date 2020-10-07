@@ -1,6 +1,6 @@
 # Simple K8s Application
 
-# Run following command
+# Run following command #
 
 kubectl apply -f client-pod.yaml
 

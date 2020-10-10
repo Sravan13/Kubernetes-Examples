@@ -1,6 +1,6 @@
 # Simple K8s Application with pod and service example
 
-# Run following command
+# Run following command #
 
 kubectl apply -f client-pod.yaml
 

@@ -1,4 +1,4 @@
-# Simple K8s Application with pod and service example
+# Simple K8s Application with deployment and service example
 
 # Run following command #
 

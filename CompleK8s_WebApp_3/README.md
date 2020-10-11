@@ -14,9 +14,17 @@ Example belowimage shows how multiworker connected to redis
 
 ![image](https://user-images.githubusercontent.com/5359534/95674838-67f2ca80-0bd0-11eb-9a4d-2944ea761862.png)
 
+In this we keep postgres password in the secret 
+
+command to create secret : kubectl create secret <sceret type> <secret name> --from-literal <secretkey>=<secret value>
+ 
+ 
+
 
 
 Go to CompleK8s_WebApp_3
+
+kubectl create secret generic pgpassword --from-literal PGPASSWORD=12345asdf
 
 kubectl apply -f k8s
 
@@ -32,4 +40,10 @@ kubectl get pvc
 
 if we have issue with any object 
 kubectl log <pod/deployment/service/pv/pvc> <objectId>
+ 
+To setup ingress controller run following command
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.40.2/deploy/static/provider/cloud/deploy.yaml
+
+kubectl get pods -n ingress-nginx
+
 

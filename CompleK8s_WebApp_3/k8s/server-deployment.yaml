@@ -14,10 +14,29 @@ spec:
     spec:
       containers:
       - name: server
-        image: stephengrider/multi-client
+        image: stephengrider/multi-server
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
         ports:
         - containerPort: 5000
+        env:
+            - name: REDIS_HOST
+              value: complex-redis-cluster-ip-service
+            - name: REDIS_PORT
+              value: '6379'
+            - name: PGUSER
+              value: postgres
+            - name: PGHOST
+              value: complex-postgres-cluster-ip-service
+            - name: PGPOST
+              value: '5432'
+            - name: PGDATABASE
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                    secretKeyRef:
+                        key: PGPASSWORD
+                        name: pgpassword
+

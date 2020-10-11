@@ -12,6 +12,12 @@ spec:
       labels:
          component: complex-postgres
     spec:
+      # this deployment reqiures the volume so it point to the pvc (complex-database-persistent-volume-claim). this volume will available to all
+      # the containers in this template. whome ever it required they can refer by volumemount 
+      volumes:
+          - name: postgres-storage
+            persistentVolumeClaim:
+                  claimName: complex-database-persistent-volume-claim
       containers:
       - name: postgres
         image: postgres
@@ -21,3 +27,13 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 5432
+        volumeMounts:             
+            - mountPath: /var/lib/postgresql/data # data which will be there in folder will be saved in volume (i.e here postgres-storage) under sub directory (subPath:) postgres
+              name: postgres-storage # this will point to the name of the volume which we required
+              subPath: postgres
+        env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: PGPASSWORD
+                  name: pgpassword 

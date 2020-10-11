@@ -6,7 +6,13 @@
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Here we required enviromentment variables / secrets to be configured for the multi-server and multi-worker.In the below image yellow one's are constant values and red onces are constant but are URL's to connect the redis and postgres for multi-server, multi-client.
+Here we required enviromentment variables / secrets to be configured for the multi-server and multi-worker.In the below image yellow one's are constant values and red onces are constant but are URL's to connect the redis and postgres for multi-server, multi-worker and white one represent secrets
+
+![image](https://user-images.githubusercontent.com/5359534/95674596-dafb4180-0bce-11eb-8c87-5362f3712021.png)
+
+Example belowimage shows how multiworker connected to redis
+
+![image](https://user-images.githubusercontent.com/5359534/95674838-67f2ca80-0bd0-11eb-9a4d-2944ea761862.png)
 
 
 
